@@ -1,0 +1,27 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      // Seus aliases existentes
+      "@config/*": ["config/*"],
+      "@core/*": ["core/*"],
+      "@modules/*": ["modules/*"],
+      // ALIAS PARA A PASTA DE TESTES (OPCIONAL, MAS ÚTIL)
+      "@tests/*": ["tests/*"]
+    }
+  },
+  // Inclui a pasta 'src' e todos os arquivos .ts na raiz (se houver)
+  "include": ["src", "*.ts"], 
+  "exclude": ["node_modules"]
+}
