@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
-import authRoutes from "@modules/auth/auth.routes";
+import authRoutes from "./modules/auth/auth.routes";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
-import { v4 as uuid } from "uuid";
-import { logger } from "@core/utils/logger";
+import { v4 } from "uuid";
+import { logger } from "./core/utils/logger";
 
 dotenv.config();
 
@@ -22,7 +22,7 @@ app.use(
   }),
 );
 app.use((req, _, next) => {
-  req.headers["x-correlation-id"] = uuid();
+  req.headers["x-correlation-id"] = v4();
   next();
 });
 app.use((req, _, next) => {

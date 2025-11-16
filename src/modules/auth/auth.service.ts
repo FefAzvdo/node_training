@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { createClient } from "redis";
-import { UserService } from "@modules/users/users.service";
+import { UserService } from "../users/users.service";
 
 const redis = createClient();
 redis.connect();
