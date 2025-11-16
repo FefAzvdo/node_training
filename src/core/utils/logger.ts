@@ -1,4 +1,3 @@
-import app from "app";
 import pino from "pino";
 
 export const logger = pino({

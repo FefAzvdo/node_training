@@ -11,14 +11,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "baseUrl": "./src",
-    "paths": {
-      // Seus aliases existentes
-      "@config/*": ["config/*"],
-      "@core/*": ["core/*"],
-      "@modules/*": ["modules/*"],
-      // ALIAS PARA A PASTA DE TESTES (OPCIONAL, MAS ÚTIL)
-      "@tests/*": ["tests/*"]
+    "baseUrl": "./",
+    "paths": {      
+     "@modules/*": ["src/modules/*"],
+      "@config/*": ["src/config/*"],
+      "@core/*": ["src/core/*"],
+      "@tests/*": ["src/tests/*"]
     }
   },
   // Inclui a pasta 'src' e todos os arquivos .ts na raiz (se houver)
