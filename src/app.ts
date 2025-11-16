@@ -4,8 +4,8 @@ import authRoutes from "@modules/auth/auth.routes";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
-import { auth } from "@core/middlewares/auth";
-import { userRate } from "@core/middlewares/userRateLimit";
+import { v4 as uuid } from "uuid";
+import { logger } from "@core/utils/logger";
 
 dotenv.config();
 
@@ -21,6 +21,14 @@ app.use(
     message: "Too many requests",
   }),
 );
+app.use((req, _, next) => {
+  req.headers["x-correlation-id"] = uuid();
+  next();
+});
+app.use((req, _, next) => {
+  logger.info({ route: req.url, cid: req.headers["x-correlation-id"] });
+  next();
+});
 
 // app.use("/sensitive", auth, userRate, sensitiveRoutes);
 
